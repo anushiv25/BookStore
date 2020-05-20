@@ -15,6 +15,7 @@ urlpatterns = [
     path('webbooks/',views.webbooks,name='webbooks'), 
     path('search/',views.search,name='search'),
     #path('index/',views.index,name='index'),
+    path('addfav/',views.addfav,name='addfav'),
 ]
 
 if settings.DEBUG:

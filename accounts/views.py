@@ -161,3 +161,14 @@ def upload(request):
         context['url']=fs.url(name)
     return render(request,'upload.html')
 """
+@login_required(login_url='addfav')
+def addfav(request):
+    current_user=request.user
+    if request.method=="POST":
+        book_title = request.POST.get('book_title')
+        fav_book=Book.objects.filter(title=book_title).get()
+        fav_book.fav_of_users.add(current_user)
+        context = {
+
+        }
+        return render(request,'book_list.html',context)
